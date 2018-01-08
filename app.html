@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>Hello App!</h1>
+    <p>
+        <!-- 使用 router-link 组件来导航. -->
+        <!-- 通过传入 `to` 属性指定链接. -->
+        <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+        <!--<router-link to="/foo">Go to Foo</router-link>-->
+        <!--<router-link to="/bar">Go to Bar</router-link>-->
+        <a href="#/foo">Go to Foo</a>
+        <a href="#/bar">Go to Bar</a>
+    </p>
+    <!-- 路由出口 -->
+    <!-- 路由匹配到的组件将渲染在这里 -->
+    <router-view></router-view>
+</div>
+<script>
+    //vue  按照自己的需求找到相应的内容(组件)
+    //完整的结构 逻辑  数据
+    //1.引入 vue-router.js
+    //2.指定视图出现的位置  router-view
+    //3.指定跳转的地址  <a href="#/ab"></a>
+    //4.在new Vue配置路由
+    //5.设置路由  new VueRouter({})[有很多配置]
+    //6.一一对应关系  请求路径->组件
+    //7.设置好相应的组件
+    //8.组件里面写
+    // const Foo = { template: '<div>foo</div>' }
+    // const Bar = { template: '<div>bar</div>' }
+    const Foo=Vue.component("Foo",{
+        template:`<div @click="change">foo</div>`,
+        methods:{
+            change(){
+                this.$emit("foo")
+            }
+        }
+    })
+    const Bar =Vue.component("Bar",{
+        template:`<div @click="change">bar</div>`,
+        methods:{
+            change(){
+                this.$emit("bar")
+            }
+        }
+    })
+    const routes = [
+        { path: '/foo', component: Foo },
+        { path: '/bar', component: Bar }
+    ]
+    const router = new VueRouter({
+        routes // （缩写）相当于 routes: routes
+    })
+    const app = new Vue({
+        router
+    }).$mount('#app')
+</script>
+</body>
+</html>

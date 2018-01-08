@@ -1,0 +1,1 @@
+[{"id":"1","title":"Global全局配置","pid":"0"},{"id":"2","title":"devtools","pid":"1"},{"id":"3","title":"errorHandler","pid":"1"},{"id":"4","title":"全局API","pid":"0"},{"id":"5","title":"component","pid":"4"},{"id":"6","title":"directive","pid":"4"},{"id":"7","title":"选项/数据","pid":"0"},{"id":"8","title":"data","pid":"7"},{"id":"9","title":"props","pid":"7"}]
